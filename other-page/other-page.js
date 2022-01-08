@@ -1,4 +1,4 @@
-import { checkAuth, logout } from '../fetch-utils.js';
+import { checkAuth, logout, deleteAllItems, buyItem, getItems, createItem } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -47,7 +47,7 @@ async function fetchAndDisplayItems() {
             });
         }
 
-        itemsEl.append(itemEl);
+        listEl.append(itemEl);
     }
 
 }
