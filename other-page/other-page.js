@@ -34,11 +34,11 @@ async function fetchAndDisplayItems() {
         itemEl.classList.add('item');
         itemEl.textContent = `${item.quantity} ${item.item}`;
         
-        // be sure to give each item an event listener
-        // on click, complete that item
-        if (item.bought === true) {
+        if (item.bought) {
             itemEl.classList.add('bought');
         } else {
+            // be sure to give each item an event listener
+            // on click, switch that item to "bought"
         
             itemEl.classList.add('not-bought');
             itemEl.addEventListener('click', async() => {
@@ -66,5 +66,5 @@ deleteButton.addEventListener('click', async() => {
     // delete all items
     await deleteAllItems();
     // then refetch and display the updated list of items
-    await fetchAndDisplayItems();
+    fetchAndDisplayItems();
 });
