@@ -19,9 +19,32 @@
             <img src="../assets/big-logo.png" />
         </div>
     </header>    
-    <button id="logout">Logout</button>
-    <main>
-        <h1>You are logged in!</h1>
+    <main class="list-main">
+        <button id="logout">Logout</button>
+        <h1>Say hello to Lister Roboto!</h1>
+        <div class="welcome">
+            <img src="../assets/lister-roboto.jpg" class="lister-roboto">
+            <button class="delete-button">Delete list?</button>
+        </div>
+        <section>
+            <form class="item-form">
+                <label>
+                    Quantity:
+                    <input type="number" name="quantity" min="0" />
+                </label>
+                <label>
+                    Item:
+                    <input type="string" name="item" />
+                </label>
+
+                <button>Add item?</button>
+            </form>
+
+            <ul class="list">
+                <!-- home of the shopping list -->
+            </ul>
+
+        </section>
     </main>
     <footer>
         <div class="copy gutter-right">&copy; 2021 Alchemy Code Lab</div>
