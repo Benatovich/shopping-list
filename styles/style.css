@@ -113,6 +113,17 @@ footer {
     top: 90px;
 }
 
+.welcome {
+    display: flex;
+    margin: 0;
+}
+
+.lister-roboto {
+    height: 300px;
+    display: flex;
+    margin: 0;
+}
+
 .item {
     display: flex;
     flex-direction: column;
@@ -161,6 +172,8 @@ footer {
     background-color: crimson;
     margin: 20px;
     font-size: 1.3rem;
+    height: 50px;
+    align-self: center;
 }
 
 .auth-main {
