@@ -42,27 +42,21 @@ export async function buyItem(id) {
 
     return checkError(response);
 }
-
 export function renderItem(item) {
-    // create a p tag
-    const itemEl = document.createElement('p');
-    // add the 'item' css class no matter what
-    itemEl.classList.add('item');
-
-    itemEl.textContent = `${item.quantity} ${item.item}`;
-
-    itemEl.classList.add(item.bought ? 'bought' : 'not-bought');
-  
-    if (!item.bought) {
-        itemEl.addEventListener('click', async() => {
-            await buyItem(item.id);
-            getItems();
-            renderItem(item);
-        });
-    }
+    // create a div and a p tag
+    const div = document.createElement('div');
+    const p = document.createElement('p');
+    // depending on whether the todo is complete, give the div the appropriate css class ('complete' or 'incomplete')
+    div.classList.add(item.bought ? 'bought' : 'not-bought');
+    // add the 'todo' css class no matter what
+    div.classList.add('item');
+    // put the todo's text into the p tag
+    p.textContent = `${item.quantity} ${item.item}`;
+    // append stuff
+    div.append(p);
+    // return the div
+    return div;
 }
-
-// export function displayList()
 
 // everything should be good below this point (taken from template)
 export async function getUser() {

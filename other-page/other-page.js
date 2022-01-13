@@ -1,4 +1,4 @@
-import { checkAuth, logout, deleteAllItems, buyItem, getItems, createItem } from '../fetch-utils.js';
+import { checkAuth, logout, deleteAllItems, buyItem, getItems, createItem, renderItem } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -24,33 +24,26 @@ itemForm.addEventListener('submit', async(e) => {
 });
 
 async function fetchAndDisplayItems() {
-    // fetch the items
+    // fetch the todos
     const items = await getItems();
-    // clear out itemsEl
+    // clear out todosEl
     listEl.textContent = '';
-    // display the list of items
+    // display the list of todos
     for (let item of items) {
-        const itemEl = document.createElement('p');
-        itemEl.classList.add('item');
-        itemEl.textContent = `${item.quantity} ${item.item}`;
+        const itemEl = renderItem(item);
         
-        if (item.bought) {
-            itemEl.classList.add('bought');
-        } else {
-            // be sure to give each item an event listener
-            // on click, switch that item to "bought"
-        
-            itemEl.classList.add('not-bought');
-            itemEl.addEventListener('click', async() => {
-                await buyItem(item.id);
-                fetchAndDisplayItems();
-            });
-        }
+        // be sure to give each todo an event listener
+        // on click, complete that todo
+        itemEl.addEventListener('click', async() => {
+            await buyItem(item.id);
 
+            fetchAndDisplayItems();
+        });
         listEl.append(itemEl);
     }
 
 }
+
 
 // add an on load listener that fetches and displays items on load
 window.addEventListener('load', async() => {
