@@ -21,6 +21,17 @@ body {
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
 }
+h1 {
+    margin-bottom: 0;
+    justify-content: left;
+}
+
+h3 {
+    margin: 0;
+    justify-content: right;
+    align-items:flex-end;
+    ;
+}
 
 main {
     display: flex;
